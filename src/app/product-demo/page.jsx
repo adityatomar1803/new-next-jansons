@@ -5,6 +5,7 @@ import Quote from "../../component/form/quote";
 import Link from "next/link";
 import Header from "@/component/header/header";
 import Footer from "@/component/footer/footer";
+import { toast } from "react-toastify";
 
 const ProductDemoPage = () => {
   const ScrollToTop = () => {
@@ -13,6 +14,19 @@ const ProductDemoPage = () => {
     }, []);
 
     return null;
+  };
+  const link = "https://example.com";
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(link);
+      toast.success('Link copied to clipboard!', {
+        autoClose: 5000,
+        position: 'top-center',
+      });
+    } catch (err) {
+      toast.error("Failed to copy the link!");
+      console.error("Copy error:", err);
+    }
   };
 
   return (
@@ -43,7 +57,7 @@ const ProductDemoPage = () => {
             <button className=" bg-[#880909] text-white py-2 px-4 rounded-lg text-2xl mb-2">
               Panduit
             </button>
-            <button className=" border py-2 px-4">
+            <button className=" border py-2 px-4" onClick={copyToClipboard}>
               <i className="fa-solid fa-share"></i>
             </button>
             <button className=" border py-2 px-4">
@@ -84,7 +98,7 @@ const ProductDemoPage = () => {
             <button className=" bg-[#880909] text-white py-2 px-4 rounded-lg text-2xl ">
               Vesda
             </button>
-            <button className=" border py-2 px-4">
+            <button className=" border py-2 px-4" onClick={copyToClipboard}>
               <i className="fa-solid fa-share"></i>
             </button>
             <button className=" border py-2 px-4">
@@ -121,7 +135,7 @@ const ProductDemoPage = () => {
       </div>
 
       {/* Workstation Essentials Section */}
-      <div className="bg-[url('/wse.webp')]  bg-bottom bg-no-repeat bg-cover min-h-[600px]  py-16 px-4 text-center">
+      <div className="bg-[url('/wse.png')]  bg-bottom bg-no-repeat bg-cover min-h-[500px]  py-16 px-4 text-center">
         <div className="container mx-auto">
           <h2 className="text-3xl font-semibold text-red-600 mb-4">
             Wireless & Wired

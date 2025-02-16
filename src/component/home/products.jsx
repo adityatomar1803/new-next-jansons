@@ -27,7 +27,7 @@ const Products = () => {
                         <img src="/Screenshot_2022-05-06_132134-removebg-preview1.png" className="absolute right-0 bottom-0 max-h-40 md:max-h-44 lg:max-h-60 rounded-tl-2xl h-full" />
                     </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-6 bg-[url('/wse.webp')] bg-bottom bg-no-repeat bg-cover min-h-[600px]">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-6 bg-[url('/wse.png')] bg-bottom bg-no-repeat bg-cover min-h-[500px]">
                     <div className=" p-6 rounded shadow flex  justify-start flex-col items-center">
                         <h2 className="text-3xl font-semibold text-red-600 mb-4">
                             Wireless & Wired

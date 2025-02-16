@@ -25,7 +25,7 @@ function Collaborations() {
           <Link href={`/collaborations/${index}`}  key={logo.alt}>
             <div
              
-              className="bg-[url('/collab-bg.png')]  md:min-h-72  bg-contain bg-no-repeat w-full     p-4 flex justify-center items-center "
+              className="bg-[url('/collab-bg.png')]  md:min-h-72  bg-contain bg-no-repeat w-full     py-4 flex justify-center items-center "
             >
               <img src={`/${logo.src}`} alt={logo.alt} className="md:h-16  mx-auto" />
             </div>

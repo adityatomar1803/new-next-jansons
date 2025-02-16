@@ -31,7 +31,9 @@ const AboutUs = () => {
           {/* Image or Icon Section */}
           <div className="flex-1 relative bg-[url('/11111.png')] bg-no-repeat bg-cover rounded-lg p-6 flex justify-center items-center min-h-[300px]">
             <div className="absolute right-0 top-[90%] md:top-[80%] lg:top-[90%] rounded-full outline-4 outline-white outline bg-yellow-400 h-14 w-14 flex justify-center items-center">
-              <span class="text-[36px]">↗</span>
+              <Link href={'/product'}>
+                <span class="text-[36px]">↗</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -118,7 +118,8 @@ const Contact = () => {
                   </span>
 
                 </div>
-                {formik.touched.phone && formik.errors.mobile && (
+                
+                {formik.touched.mobile && formik.errors.mobile && (
                   <div className="text-red-500 text-xs mt-1">{formik.errors.mobile}</div>
                 )}
               </div>

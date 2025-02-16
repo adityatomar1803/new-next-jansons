@@ -31,13 +31,13 @@ const slides = [
         extraTitle: "Electrifying Possibilities",
         subtitle: "Step outside your comfort zone",
     },
-    {
-        id: 3,
-        image: "/hero-3.webp",
-        title: "Powering Innovations",
-        extraTitle: "Electrifying Possibilities",
-        subtitle: "Experience the world like never before",
-    },
+    // {
+    //     id: 3,
+    //     image: "/hero-3.webp",
+    //     title: "Powering Innovations",
+    //     extraTitle: "Electrifying Possibilities",
+    //     subtitle: "Experience the world like never before",
+    // },
 ];
 
 const HeroSlider = () => {
@@ -45,18 +45,18 @@ const HeroSlider = () => {
         <div className="relative w-full h-screen mt-10 mb-10 px-10 overflow-hidden">
             <Slider {...settings} className="h-full">
                 {slides.map((slide) => (
-                    <div key={slide.id} className="relative w-full h-screen">
+                    <div key={slide.id} className="relative w-full h-screen ">
                         {/* Background Image */}
                         <div
-                            className="absolute inset-0 bg-cover bg-center"
+                            className="absolute inset-0 bg-cover bg-center  rounded-3xl"
                             style={{ backgroundImage: `url(${slide.image})` }}
                         />
 
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/50" />
+                        {/* <div className="absolute inset-0 bg-black/50 rounded-3xl" /> */}
 
                         {/* Animated Text */}
-                        <div className="absolute  top-0 flex flex-col left-0  text-white py-5  bg-white px-6 md:max-h-96 md:h-full  justify-center rounded-br-2xl">
+                        <div className="absolute  top-0 flex flex-col left-0  text-white py-5   px-6 md:max-h-96 md:h-full  justify-center rounded-br-2xl">
                             <button className=" bg-[#f2f2f2] px-5 py-2 rounded-[20px] w-max text-black flex gap-2"><img src="/Group@2x.png" className="h-6"/> Electro Webstore</button>
                             <motion.h1
                                 className="text-2xl md:text-6xl font-bold text-black"

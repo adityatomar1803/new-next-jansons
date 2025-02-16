@@ -9,13 +9,13 @@ import Header from '@/component/header/header';
 import Footer from '@/component/footer/footer';
 
 const ContactUs = () => {
-    const ScrollToTop = () => {
-        useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
+    // const ScrollToTop = () => {
+    //     useEffect(() => {
+    //         window.scrollTo(0, 0);
+    //     }, []);
 
-        return null;
-    };
+    //     return null;
+    // };
 
     const formik = useFormik({
         initialValues: {
@@ -75,10 +75,9 @@ const ContactUs = () => {
             event.preventDefault();
         }
     });
-    console.log(formik.errors, 'Check errros')
     return (
         <div>
-            <ScrollToTop />
+            {/* <ScrollToTop /> */}
             <Header />
             {/* <div className="bg-white p-8 flex flex-col items-center ">
                 <h2 className="text-3xl font-bold mb-6 text-left">Meet with us- Corporate Office</h2>

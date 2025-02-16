@@ -31,11 +31,11 @@ const DownloadPage = () => {
 
       {/* Hero Section */}
       <div
-        className="relative w-full overflow-hidden bg-cover bg-center bg-[url('/download-banner.png')] h-[400px] flex items-center justify-center text-white"
+        className="relative w-full overflow-hidden bg-cover  bg-[url('/download-banner.png')] bg-top h-[400px] flex items-center justify-start text-white pl-4 md:pl-8"
       >
-        <div className="overlay"></div>
+        {/* <div className="overlay"></div> */}
         <h1 className=" text-3xl md:text-4xl font-bold drop-shadow-lg text-center">
-          Wiring the Future, Energizing Today.
+          Wiring the Future,<br/> Energizing Today.
         </h1>
       </div>
 

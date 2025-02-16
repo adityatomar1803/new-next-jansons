@@ -206,14 +206,14 @@ const ProductAndService = () => {
 
   return (
     <div>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Header />
-      <div className="relative bg-[url('/download-banner.png')] h-[300px] flex items-center justify-center text-center">
-        <div className="overlay-marron  "></div>
+      <div className="relative bg-[url('/product-banner.png')] h-[400px]  bg-left-top flex items-center justify-start pl-4 md:pl-8">
+        {/* <div className="overlay-marron  "></div> */}
         <h1 className="text-white   font-bold text-3xl md:text-4xl z-[1]">
           Powering Innovation,
           <br />
-          Electrifying Possibilities
+          Electrifying <br />Possibilities
         </h1>
       </div>
       <div className=" container mx-auto">
@@ -271,11 +271,11 @@ const ProductAndService = () => {
       <div className="container mx-auto px-4 pb-12">
         <div className="relative rounded-lg bg-[to-100%,to-100%] bg-cover bg-bottom bg-no-repeat bg-[url('/product-bottom-banner.png')]  h-[400px] flex flex-col md:flex-row items-center justify-center text-center">
           <div className=" w-full md:w-1/2 text-center md:text-center">
-            <h2 className="text-2xl md:text-4xl font-bold leading-tight text-white  ">
+            <h2 className="text-2xl md:text-4xl  leading-tight text-white  ">
               Electrical Components
               <br />
-              {/* <span className="text-yellow-400"></span> */}
             </h2>
+            <span className="text-yellow-400 text-4xl font-bold">COMPONENTS</span>
             <p className="mt-3 text-gray-300 italic text-sm md:text-lg">
               All Needed Components in one place
             </p>
