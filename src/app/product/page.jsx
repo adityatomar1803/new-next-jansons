@@ -208,14 +208,15 @@ const ProductAndService = () => {
     <div>
       {/* <ScrollToTop /> */}
       <Header />
-      <div className="relative bg-[url('/product-banner.png')] h-[400px]  bg-left-top flex items-center justify-start pl-4 md:pl-8">
-        {/* <div className="overlay-marron  "></div> */}
-        <h1 className="text-white   font-bold text-3xl md:text-4xl z-[1]">
-          Powering Innovation,
-          <br />
-          Electrifying <br />Possibilities
-        </h1>
-      </div>
+
+      <div className="relative bg-[url('/product-banner.png')] bg-cover bg-top h-[400px] flex items-start justify-center flex-col  text-center pl-4 md:pl-8">
+      <h1 className="text-white font-bold text-3xl md:text-[48px] z-[1]">Powering Innovation,</h1>
+      <br/>
+      <h1 className="text-white font-bold text-3xl md:text-[48px]   z-[1]">Electrifying</h1>
+      <br/>
+      <h1 className="text-white font-bold text-3xl md:text-[48px]   z-[1]">Possibilities</h1>
+      {/*  */}
+    </div>
       <div className=" container mx-auto">
         <h3 className="text-xl font-bold px-6 mt-12 mb-6 ">Category</h3>
 
