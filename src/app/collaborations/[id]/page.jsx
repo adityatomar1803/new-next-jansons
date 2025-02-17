@@ -230,9 +230,7 @@ const CollaborationAbout = () => {
 								<br /> Electrifying Possibilities
 							</h3>
 						</div>
-						<div className="bg-black rounded-lg w-full">
-							<div className="bg-[url('/about-collaborationss.png')] bg-cover bg-no-repeat h-[240px]  "></div>
-						</div>
+						<div className="bg-[url('/about-collaborations.png')] bg-cover bg-no-repeat h-[140px] md:h-[200px] rounded-lg  "></div>
 					</div>
 				</div>
 			</div>
