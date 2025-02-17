@@ -1,126 +1,161 @@
-"use client"
-import React, { useEffect } from "react";
-import Quote from "../../component/form/quote";
-import Header from "@/component/header/header";
-import Footer from "@/component/footer/footer";
+'use client';
+import React, { useEffect } from 'react';
+import Quote from '../../component/form/quote';
+import Header from '@/component/header/header';
+import Footer from '@/component/footer/footer';
 
 const DownloadPage = () => {
-  const handleDownload = (url) => {
-    const pdfUrl = url; // Replace with your actual PDF URL
-    window.open(pdfUrl, "_blank"); // Opens in a new tab
-  };
-  const ScrollToTop = () => {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+	const handleDownload = (url) => {
+		const pdfUrl = url; // Replace with your actual PDF URL
+		window.open(pdfUrl, '_blank'); // Opens in a new tab
+	};
+	const ScrollToTop = () => {
+		useEffect(() => {
+			window.scrollTo(0, 0);
+		}, []);
 
-    return null;
-  };
+		return null;
+	};
 
-  const phoneNumber = "9873664653"; // Replace with your WhatsApp number
-  const message = "Hello, I would like to inquire something.";
+	const phoneNumber = '9873664653'; // Replace with your WhatsApp number
+	const message = 'Hello, I would like to inquire something.';
 
-  const openWhatsApp = () => {
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
-  return (
-    <div className="bg-white font-sans">
-      <ScrollToTop />
-      <Header />
+	const openWhatsApp = () => {
+		const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+			message,
+		)}`;
+		window.open(url, '_blank');
+	};
+	return (
+		<div className="bg-white font-sans">
+			<ScrollToTop />
+			<Header />
 
-      {/* Hero Section */}
-      <div
-        className="relative w-full overflow-hidden bg-cover  bg-[url('/download-banner.png')] bg-top h-[400px] flex items-start justify-center flex-col text-white pl-4 md:pl-8"
-      >
-        <h1 className="text-white font-bold text-3xl md:text-[48px] z-[1]">Wiring the Future,</h1>
-      <br/>
-      <h1 className="text-white font-bold text-3xl md:text-[48px]   z-[1]">Energizing Today.</h1>
-      </div>
+			{/* Hero Section */}
+			<div className="relative w-full overflow-hidden bg-cover  bg-[url('/download-banner.png')] bg-top lg:h-[400px] flex items-start justify-center flex-col text-white pl-4 md:pl-8 py-6">
+				<div className="container mx-auto text-left space-y-2 md:space-y-9">
+					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px] z-[1]">
+						Wiring the Future,
+					</h1>
+					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]   z-[1]">
+						Energizing Today.
+					</h1>
+				</div>
+			</div>
 
-      {/* About Us Section */}
-      <div className="container mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold text-center sm:text-left mb-4">More About Us</h2>
-        <p className="text-gray-700 leading-relaxed text-lg sm:text-xl text-center sm:text-left">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        </p>
+			{/* About Us Section */}
+			<div className="container mx-auto px-6 py-12">
+				<h2 className="text-2xl font-bold text-center sm:text-left mb-4">
+					More About Us
+				</h2>
+				<p className="text-gray-700 leading-relaxed text-lg sm:text-xl text-center sm:text-left">
+					Jainsons India Pvt. Ltd. is a trusted and authorized
+					distributor of industrial electrical components, committed
+					to delivering high-quality solutions to a diverse customer
+					base. With decades of expertise, we cater to major sectors
+					including Wiring Harness Industry, Railways, D.M.R.C., OEMs,
+					and more.
+				</p>
 
-        {/* Download Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
-          {[
-            { title: "Company Catalogue", path: "/Vector.png", url: "https://jainsons-v1.s3.ap-south-1.amazonaws.com/JAINSONS++Catlogue+2024.pdf" },
-            { title: "Company Profile", path: "/profile.png", url: "https://jainsons-v1.s3.ap-south-1.amazonaws.com/JAINSONS+Profile+and+Product+Range+(2).pdf" },
-            // { title: "Ideal Catalogue", path: "/idealcatalogue.png" }
-          ].map((data, index) => (
-            <div
-              key={index}
-              className="border p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition duration-300 bg-white"
-            >
-              <div className="text-red-600 text-5xl mb-4">
-                <img
-                  src={data.path}
-                  alt={data.title}
-                  className="mx-auto h-32 sm:h-40 md:h-48 object-contain"
-                />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{data.title}</h3>
-              <button className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300" onClick={() => handleDownload(data.url)}>
-                Download ↓
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+				{/* Download Cards */}
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+					{[
+						{
+							title: 'Company Catalogue',
+							path: '/Vector.png',
+							url: 'https://jainsons-v1.s3.ap-south-1.amazonaws.com/JAINSONS++Catlogue+2024.pdf',
+						},
+						{
+							title: 'Company Profile',
+							path: '/profile.png',
+							url: 'https://jainsons-v1.s3.ap-south-1.amazonaws.com/JAINSONS+Profile+and+Product+Range+(2).pdf',
+						},
+						// { title: "Ideal Catalogue", path: "/idealcatalogue.png" }
+					].map((data, index) => (
+						<div
+							key={index}
+							className="border p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition duration-300 bg-white"
+						>
+							<div className="text-red-600 text-5xl mb-4">
+								<img
+									src={data.path}
+									alt={data.title}
+									className="mx-auto h-32 sm:h-40 md:h-48 object-contain"
+								/>
+							</div>
+							<h3 className="text-lg font-semibold mb-2">
+								{data.title}
+							</h3>
+							<button
+								className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
+								onClick={() => handleDownload(data.url)}
+							>
+								Download ↓
+							</button>
+						</div>
+					))}
+				</div>
+			</div>
 
-
-      {/* Features Section */}
-      <div className="bg-[#880909] text-white py-12">
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="text-4xl mb-4">
-              <img src="/service.png" className=" mx-auto" />
-            </div>
-            <h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">Industry-Grade Quality</h4>
-            <p>Precision-engineered for unmatched performance and reliability.</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl mb-4">
-              <img src="/cutting.png" className=" mx-auto" />
-            </div>
-            <h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">Cutting-Edge Technology</h4>
-            <p>Empowering innovation with the latest in electrical technology.</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl mb-4 ">
-              <img src="/quick-support.png" className=" mx-auto" />
-            </div>
-            <h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">Quick Support</h4>
-            <p>
-              Contact us at +91-98******* <br />
-              Timings: Mon to Sat 10 AM - 5 PM
-            </p>
-          </div>
-        </div>
-      </div>
-      {/*  */}
-      {/* Quote Form */}
-      <div className="relative">
-
-        <Quote />
-        <div className=" w-full flex justify-end">
-
-          <button
-            onClick={openWhatsApp}
-            className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition flex items-center justify-center"
-          >
-            {/* <img src="/whatsapp-icon.svg" alt="WhatsApp" className="w-8 h-8" /> */}
-            <i className="fa-brands fa-whatsapp w-8 h-8 text-[36px]"></i>
-          </button>
-        </div>
-      </div>
-      {/* <div className="container mx-auto py-16 px-4 md:px-8">
+			{/* Features Section */}
+			<div className="bg-[#880909] text-white py-12">
+				<div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+					<div className="text-center">
+						<div className="text-4xl mb-4">
+							<img src="/service.png" className=" mx-auto" />
+						</div>
+						<h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">
+							Industry-Grade Quality
+						</h4>
+						<p>
+							Precision-engineered for unmatched performance and
+							reliability.
+						</p>
+					</div>
+					<div className="text-center">
+						<div className="text-4xl mb-4">
+							<img src="/cutting.png" className=" mx-auto" />
+						</div>
+						<h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">
+							Cutting-Edge Technology
+						</h4>
+						<p>
+							Empowering innovation with the latest in electrical
+							technology.
+						</p>
+					</div>
+					<div className="text-center">
+						<div className="text-4xl mb-4 ">
+							<img
+								src="/quick-support.png"
+								className=" mx-auto"
+							/>
+						</div>
+						<h4 className="text-xl font-bold mb-2 text-[#EDCD1F]">
+							Quick Support
+						</h4>
+						<p>
+							Contact us at +91-98******* <br />
+							Timings: Mon to Sat 10 AM - 5 PM
+						</p>
+					</div>
+				</div>
+			</div>
+			{/*  */}
+			{/* Quote Form */}
+			<div className="relative">
+				<Quote />
+				<div className=" w-full flex justify-end">
+					<button
+						onClick={openWhatsApp}
+						className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition flex items-center justify-center"
+					>
+						{/* <img src="/whatsapp-icon.svg" alt="WhatsApp" className="w-8 h-8" /> */}
+						<i className="fa-brands fa-whatsapp w-8 h-8 text-[36px]"></i>
+					</button>
+				</div>
+			</div>
+			{/* <div className="container mx-auto py-16 px-4 md:px-8">
         <div className="flex justify-center items-center bg-white">
           <div className="w-full max-w-2xl p-8 shadow-lg border rounded-lg">
             <h3 className="text-xl font-bold text-center mb-6">
@@ -166,8 +201,8 @@ const DownloadPage = () => {
         </div>
       </div> */}
 
-      {/* Footer Section */}
-      {/* <footer className="bg-red-600 text-white py-8">
+			{/* Footer Section */}
+			{/* <footer className="bg-red-600 text-white py-8">
         <div className="container mx-auto flex flex-wrap justify-between">
           <div>
             <img
@@ -202,9 +237,9 @@ const DownloadPage = () => {
         </div>
         <p className="text-center mt-6 text-sm">© Jain Sons India - All Rights Reserved.</p>
       </footer> */}
-      <Footer />
-    </div>
-  );
+			<Footer />
+		</div>
+	);
 };
 
 export default DownloadPage;
