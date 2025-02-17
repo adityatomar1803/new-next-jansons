@@ -47,7 +47,7 @@ const ContactUs = () => {
 
             try {
                 // Send data to the API
-                const response = await axios.post('http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/contactUs', formData);
+                const response = await axios.post('https://api.jainsonsindiaonline.com/api/contactUs', formData);
 
                 // Success message
                 if (response.status === 200 || response.status === 201) {

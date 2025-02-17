@@ -61,7 +61,7 @@ const ProductAndService = () => {
   const getAllCategory = async () => {
     try {
       const response = await axios.get(
-        "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/categories/showAll"
+        "https://api.jainsonsindiaonline.com/api/categories/showAll"
       );
       if (response.data) {
         setCategories(response.data?.data);
@@ -75,7 +75,7 @@ const ProductAndService = () => {
   };
 
   const fetchProducts = async (category) => {
-    const url = new URL("http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/product/search");
+    const url = new URL("https://api.jainsonsindiaonline.com/api/product/search");
     setIsLoading(true);
     url.searchParams.append("category", category);
     try {
@@ -100,7 +100,7 @@ const ProductAndService = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/product/getAll"
+          "https://api.jainsonsindiaonline.com/api/product/getAll"
         );
 
         if (response.data && response.data.data) {
@@ -163,7 +163,7 @@ const ProductAndService = () => {
       try {
         // Send data to the API
         const response = await axios.post(
-          "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/contactUs",
+          "https://api.jainsonsindiaonline.com/api/contactUs",
           formData
         );
         // Success message

@@ -26,7 +26,7 @@ const Quote = () => {
       setSubmitting(true);
       try {
         const response = await axios.post(
-          "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/quotes/add",
+          "https://api.jainsonsindiaonline.com/api/quotes/add",
           values
         );
         if (response.status === 200) {
@@ -57,7 +57,7 @@ const Quote = () => {
   const getAllCategory = async () => {
     try {
       const response = await axios.get(
-        "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/categories/showAll"
+        "https://api.jainsonsindiaonline.com/api/categories/showAll"
       );
       if (response.data) {
         setCategories(response.data?.data);
