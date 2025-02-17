@@ -13,15 +13,15 @@ import Footer from "@/component/footer/footer";
 import Header from "@/component/header/header";
 
 const logos = [
-  { src: 'panduit.png', alt: 'Panduit' },
-  { src: 'xtralis.png', alt: 'Xtralis' },
-  { src: 'phoenix.png', alt: 'Phoenix Contact' },
-  { src: 'partex.png', alt: 'Partex' },
-  { src: 'hellermann.png', alt: 'HellermannTyton' },
-  { src: 'ideal.png', alt: 'Ideal' },
-  { src: 'app.png', alt: 'APP' },
-  { src: 'hummel.png', alt: 'Hummel' },
-  { src: 'allied.png', alt: 'Allied Connectors' },
+  { src: 'panduit.png', alt: 'Panduit', content: "Panduit specializes in innovative network infrastructure and industrial electrical wiring solutions. Their products support data centers, enterprise networks, and automation, ensuring seamless connectivity and robust electrical systems. With a focus on high performance and durability, Panduit solutions are trusted worldwide. Jainsons India’s partnership with Panduit ensures access to top-tier networking and electrical solutions for our clients. Whether it’s structured cabling, industrial automation, or power distribution, our customers benefit from Panduit’s cutting-edge technologies combined with our trusted service and support." },
+  { src: 'xtralis.png', alt: 'Xtralis', content: 'Xtralis is a global leader in early warning safety and security solutions, providing advanced smoke detection and security systems for critical infrastructure protection. Their innovative solutions help detect threats before they escalate. With Jainsons India’s collaboration with Xtralis, we bring world-class fire and security solutions to Indian businesses. Our customers benefit from early detection technology that enhances safety in commercial and industrial environments.' },
+  { src: 'phoenix.png', alt: 'Phoenix Contact', content: "Phoenix Contact is a renowned name in industrial automation and connectivity. Their expertise spans terminal blocks, power supplies, and automation software, making them a critical player in improving operational efficiency and connectivity. Their solutions are widely adopted in smart factories and industrial automation applications. Through our collaboration with Phoenix Contact, Jainsons India brings cutting-edge automation and connectivity solutions to businesses across India. Our partnership enables us to deliver high-performance industrial components that optimize production processes, reduce downtime, and enhance efficiency in various industrial sectors." },
+  { src: 'partex.png', alt: 'Partex', content: 'Partex specializes in marking systems for wires and cables, essential for efficient electrical installations. Their identification solutions improve organization and maintenance in industrial settings. Through our partnership with Partex, Jainsons India offers top-tier wire and cable marking solutions. Our collaboration ensures better cable identification and management, reducing errors and enhancing efficiency in industrial applications.' },
+  { src: 'hellermann.png', alt: 'HellermannTyton', content: 'HellermannTyton is a global leader in cable management solutions, offering innovative products that cater to the needs of various industries. Their portfolio includes fastening, routing, protecting, and identifying cables, ensuring efficiency and reliability in electrical systems. With a strong presence in the industrial and commercial sectors, their products enhance safety and organization in complex wiring setups. Jainsons India collaborates with HellermannTyton to provide state-of-the-art cable management solutions to the Indian market. By integrating their high-quality products with our extensive distribution network, we ensure that industries such as telecommunications, automotive, and construction benefit from the best in cable protection and organization.' },
+  { src: 'ideal.png', alt: 'Ideal', content: 'IDEAL Industries is known for its electrical tools and supplies, including wire connectors, testers, and hand tools. Their products are widely used by professionals for electrical installations and maintenance.Jainsons India works closely with IDEAL to bring world-class electrical tools to Indian markets. Our collaboration ensures that electricians and industries have access to reliable tools that enhance productivity and precision in their work.' },
+  { src: 'app.png', alt: 'APP', content: "Anderson Power Products specializes in high-power interconnect solutions, including electrical connectors and accessories. Their innovative designs ensure efficient power distribution in various industrial applications. Jainsons India’s collaboration with APP enables us to provide businesses robust and reliable power connectivity solutions. Our clients benefit from APP’s high-quality connectors and our dedicated support in implementing efficient electrical systems." },
+  { src: 'hummel.png', alt: 'Hummel', content: "HUMMEL is known for its precision engineering in cable glands, circular connectors, and industrial components. Their products meet international quality standards and provide reliable solutions for secure cable management and electrical connections. As an authorized distributor of HUMMEL products, Jainsons India ensures that industries receive the best in connectivity solutions. From manufacturing plants to automation industries, our partnership helps businesses achieve seamless integration of electrical systems with long-lasting reliability." },
+  { src: 'allied.png', alt: 'Allied Connectors', content: "Allied provides a broad range of electrical components, catering to diverse industrial applications. Their high-quality products are designed for efficiency and durability in demanding environments. Jainsons India partners with Allied to supply a wide range of electrical components to various industries. Our strong distribution network ensures that businesses have access to premium electrical solutions tailored to their specific needs." },
 ];
 const CollaborationAbout = () => {
   const formik = useFormik({
@@ -83,23 +83,16 @@ const CollaborationAbout = () => {
   return (
     <div className="font-sans text-gray-800">
 
-<ScrollToTop />
-<Header />
+      <ScrollToTop />
+      <Header />
       {/* Collaboration Section */}
       <div className="bg-gray-50 py-12 px-6">
         <div className="container mx-auto text-left">
           <img src={`/${logos[id]?.src}`} alt="HellermannTyton" className="mb-6 w-64" />
           <p className="text-lg leading-relaxed">
-            HellermannTyton is a leading manufacturer and supplier of products for fastening, fixing, installing, connecting, insulating, protecting and identifying electrical cables and
-            data network infrastructure. Hellermann Tyton develops parts for customer-specific
-            industrial applications.
-            <br />
-            <br />
-            HellermannTyton operate 16 world-class manufacturing facilities and develop products at 13 locations. More than 5,400 employees work at HellermannTyton in 39 countries and offer you first-class service and advice – wherever you need it.
-            <br />
-            <br />
-            HellermannTyton as a global brand is trusted by industry professionals around the world. The quality of HellermannTyton products is inspired by your cable management needs.
-            HellermannTyton’s expertise and spirit shape their pioneering activities.
+            {
+              logos[id].content
+            }
           </p>
           <button className="mt-6 px-6 py-2 bg-[#880909] text-white font-semibold rounded-full hover:bg-red-700 transition" onClick={handleExploreClick}>
             Know More
