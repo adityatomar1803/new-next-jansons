@@ -215,22 +215,20 @@ const ProductAndService = () => {
 			{/* <ScrollToTop /> */}
 			<Header />
 
-			<div className="relative bg-[url('/product-banner.png')] bg-cover bg-top  lg:h-[400px] flex items-start justify-center flex-col  text-center pl-4 md:pl-8 py-5 ">
-				<div className="container mx-auto text-left space-y-2 md:space-y-9">
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px] z-[1]">
+			<div className="relative bg-[url('/mb-product-banner.png')] md:bg-[url('/product-banner.png')]  bg-cover bg-top lg:h-[400px] flex items-start sm:items-center justify-center flex-col text-center md:text-left pl-4 md:pl-8 sm:pl-0 py-5">
+				{/* Blackish Red Overlay */}
+				<div className="lg:hidden absolute inset-0 bg-[rgba(61,0,0,0.7)]"></div>
+
+				<div className="container md:mx-auto space-y-2 md:space-y-9 z-10">
+					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]">
 						Powering Innovation,
 					</h1>
-
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px] z-[1]">
-						Electrifying
-					</h1>
-
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]   z-[1]">
-						Possibilities
+					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]">
+						Electrifying Possibilities
 					</h1>
 				</div>
-				{/*  */}
 			</div>
+
 			<div className=" container mx-auto">
 				<h3 className="text-xl font-bold px-6 mt-12 mb-6 ">Category</h3>
 
