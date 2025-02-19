@@ -22,7 +22,7 @@ const slides = [
 		image: '/hero1.webp',
 		title: 'Powering Innovations',
 		extraTitle: 'Electrifying Possibilities',
-		subtitle: 'Your Trusted Partner in Electrical & Electronic Solutions!',
+		subtitle: 'Your Trusted Partner in Electrical & Networking solutions!',
 	},
 	{
 		id: 2,

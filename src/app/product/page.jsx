@@ -55,31 +55,31 @@ const Loader = () => {
 };
 
 const ProductAndService = () => {
-  const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSelected, setIsSelected] = useState(null);
-  const getAllCategory = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.jainsonsindiaonline.com/api/categories/showAll"
-      );
-      if (response.data) {
-        setCategories(response.data?.data);
-      } else {
-      }
-    } catch (error) {
-      // setErrorMsg("Error logging in. Please check your credentials.");
-    } finally {
-      // setLoading(false);
-    }
-  };
+	const [categories, setCategories] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [isSelected, setIsSelected] = useState(null);
+	const getAllCategory = async () => {
+		try {
+			const response = await axios.get(
+				"https://api.jainsonsindiaonline.com/api/categories/showAll"
+			);
+			if (response.data) {
+				setCategories(response.data?.data);
+			} else {
+			}
+		} catch (error) {
+			// setErrorMsg("Error logging in. Please check your credentials.");
+		} finally {
+			// setLoading(false);
+		}
+	};
 
-  const fetchProducts = async (category) => {
-    const url = new URL("https://api.jainsonsindiaonline.com/api/product/search");
-    setIsLoading(true);
-    url.searchParams.append("category", category);
-    try {
-      const response = await axios.get(url);
+	const fetchProducts = async (category) => {
+		const url = new URL("https://api.jainsonsindiaonline.com/api/product/search");
+		setIsLoading(true);
+		url.searchParams.append("category", category);
+		try {
+			const response = await axios.get(url);
 
 			if (response.data && response.data.data) {
 				setProducts(response.data.data);
@@ -90,20 +90,20 @@ const ProductAndService = () => {
 		} catch (err) {
 			setError(
 				err.response?.data?.message ||
-					err.message ||
-					'An error occurred',
+				err.message ||
+				'An error occurred',
 			);
 		} finally {
 			setIsLoading(false);
 		}
 	};
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.jainsonsindiaonline.com/api/product/getAll"
-        );
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const response = await axios.get(
+					"https://api.jainsonsindiaonline.com/api/product/getAll"
+				);
 
 				if (response.data && response.data.data) {
 					setProducts(response.data.data);
@@ -113,8 +113,8 @@ const ProductAndService = () => {
 			} catch (err) {
 				setError(
 					err.response?.data?.message ||
-						err.message ||
-						'An error occurred',
+					err.message ||
+					'An error occurred',
 				);
 			} finally {
 				setLoading(false);
@@ -129,7 +129,8 @@ const ProductAndService = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
 	const [showAll, setShowAll] = useState(false); // State to toggle between show all or first 5 items
-
+	const [recentProduct, setrecentProduct] = useState(false); // State to toggle between show all or first 5 items
+	const [likeProduct, setLikeProduct] = useState(false);
 	const toggleShowAll = () => {
 		setShowAll((prevState) => !prevState);
 	};
@@ -164,34 +165,34 @@ const ProductAndService = () => {
 				message,
 			};
 
-      try {
-        // Send data to the API
-        const response = await axios.post(
-          "https://api.jainsonsindiaonline.com/api/contactUs",
-          formData
-        );
-        // Success message
-        if (response.status === 200 || response.status === 201) {
-          toast.success("Message sent successfully!", {
-            autoClose: 5000,
-            position: "top-center",
-          });
-          formik.resetForm();
-        } else {
-          toast.error("Error sending message", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 5000,
-          });
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        toast.error("Error sending message");
-      } finally {
-        setSubmitting(false); // Optionally, stop the submitting indicator
-      }
-      event.preventDefault();
-    },
-  });
+			try {
+				// Send data to the API
+				const response = await axios.post(
+					"https://api.jainsonsindiaonline.com/api/contactUs",
+					formData
+				);
+				// Success message
+				if (response.status === 200 || response.status === 201) {
+					toast.success("Message sent successfully!", {
+						autoClose: 5000,
+						position: "top-center",
+					});
+					formik.resetForm();
+				} else {
+					toast.error("Error sending message", {
+						position: toast.POSITION.TOP_RIGHT,
+						autoClose: 5000,
+					});
+				}
+			} catch (error) {
+				console.error("Error:", error);
+				toast.error("Error sending message");
+			} finally {
+				setSubmitting(false); // Optionally, stop the submitting indicator
+			}
+			event.preventDefault();
+		},
+	});
 
 	const displayedData = showAll ? products : products.slice(0, 6);
 
@@ -199,15 +200,8 @@ const ProductAndService = () => {
 		const section = document.getElementById('next-section'); // Get the target section by id
 		section.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to the section
 	};
-
-	const ScrollToTop = () => {
-		useEffect(() => {
-			window.scrollTo(0, 0);
-		}, []);
-
-		return null;
-	};
-
+	const displayedRecentProducts = recentProduct ? products.reverse() : products?.slice(-3).reverse();
+	const displayedLikeProducts = likeProduct ? products.reverse() : products?.slice(-3).reverse();
 	return (
 		<div>
 			{/* <ScrollToTop /> */}
@@ -233,14 +227,12 @@ const ProductAndService = () => {
 				<div className="flex flex-wrap gap-4 px-6 ">
 					{categories?.map((data, index) => (
 						<button
-							className={`${
-								data?._id === isSelected
-									? 'bg-[#880909]'
-									: 'bg-[#EBEBEB]'
-							} : 
-                }] hover:bg-[#880909] ${
-					data?._id === isSelected ? 'text-[#fff]' : 'text-black'
-				} hover:text-white  py-2 px-4 rounded-full transition duration-300 ease-in-out`}
+							className={`${data?._id === isSelected
+								? 'bg-[#880909]'
+								: 'bg-[#EBEBEB]'
+								} : 
+                }] hover:bg-[#880909] ${data?._id === isSelected ? 'text-[#fff]' : 'text-black'
+								} hover:text-white  py-2 px-4 rounded-full transition duration-300 ease-in-out`}
 							onClick={() => {
 								fetchProducts(data?._id);
 								setIsSelected(data?._id);
@@ -324,9 +316,7 @@ const ProductAndService = () => {
 						Recently viewed products
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 ">
-						{products
-							?.slice(-3)
-							?.reverse()
+						{displayedRecentProducts
 							?.map((product, index) => (
 								<ProductCard
 									key={index}
@@ -340,8 +330,8 @@ const ProductAndService = () => {
 
 				{products?.length > 3 && (
 					<div className=" flex w-full justify-center">
-						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-							See All
+						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500" onClick={() => setrecentProduct(!recentProduct)}>
+							{recentProduct ? 'See Less' : 'See All'}
 						</button>
 					</div>
 				)}
@@ -353,23 +343,20 @@ const ProductAndService = () => {
 						Products you may like
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 ">
-						{products
-							?.slice(-3)
-							?.reverse()
-							?.map((product, index) => (
-								<ProductCard
-									images={product.imageURLs}
-									name={product.name}
-									key={index}
-									feature={product.features}
-								/>
-							))}
+						{displayedLikeProducts?.map((product, index) => (
+							<ProductCard
+								images={product.imageURLs}
+								name={product.name}
+								key={index}
+								feature={product.features}
+							/>
+						))}
 					</div>
 				</div>
 				{products?.length > 3 && (
 					<div className=" flex w-full justify-center">
-						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-							See All
+						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500" onClick={() => setLikeProduct(!likeProduct)}>
+							{likeProduct ? 'See Less' : 'See All'}
 						</button>
 					</div>
 				)}
