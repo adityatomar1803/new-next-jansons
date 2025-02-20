@@ -52,7 +52,7 @@ const Quote = () => {
       event.preventDefault();
     },
   });
-
+  const [selectCategory , setSelectCategory] = useState('')
   const [categories, setCategories] = useState([]);
   const getAllCategory = async () => {
     try {
@@ -73,6 +73,7 @@ const Quote = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
+
   return (
     <div className="container mx-auto py-16 px-4 md:px-8">
       <div className=" flex justify-center items-center bg-white">
@@ -96,10 +97,10 @@ const Quote = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.category}
               >
-                {categories?.map((data,index) => (
+                {categories?.map((data, index) => (
                   <option
-                  key={index}
-                  value={data?._id}>{data?.name}</option>
+                    key={index}
+                    value={data?._id} onClick={() => setSelectCategory(data?.name)}>{data?.name}</option>
                 ))}
               </select>
             </div>
@@ -108,7 +109,27 @@ const Quote = () => {
                 {formik.errors.category}
               </div>
             )}
-
+            {
+              (selectCategory === 'Other' || selectCategory === 'other' || selectCategory === 'Others') &&
+              <div className="flex flex-col items-start md:flex-row md:items-center w-full  md:gap-10">
+                <label
+                  htmlFor="categoryName"
+                  className="text-sm font-medium min-w-32 sm:flex-1 md:flex-initial"
+                >
+                  Category Name
+                </label>
+                <input
+                  id="categoryName"
+                  name="category"
+                  type="text"
+                  className="mt-2 border rounded-lg p-2 flex-1 w-full"
+                  placeholder="Enter your mail id"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.category}
+                />
+              </div>
+            }
             <div className="flex flex-col items-start md:flex-row md:items-center w-full  md:gap-10">
               <label
                 htmlFor="phone"
