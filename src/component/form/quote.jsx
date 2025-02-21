@@ -52,7 +52,7 @@ const Quote = () => {
       event.preventDefault();
     },
   });
-  const [selectCategory , setSelectCategory] = useState('')
+  const [selectCategory, setSelectCategory] = useState('')
   const [categories, setCategories] = useState([]);
   const getAllCategory = async () => {
     try {
@@ -73,7 +73,14 @@ const Quote = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
+  const [selectedCategoryName, setSelectedCategoryName] = useState("");
 
+  const handleCategoryChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedCategory = categories.find((cat) => cat._id === selectedId);
+    setSelectedCategoryName(selectedCategory ? selectedCategory.name : "");
+    formik.handleChange(event); // Keep Formik's behavior
+  };
   return (
     <div className="container mx-auto py-16 px-4 md:px-8">
       <div className=" flex justify-center items-center bg-white">
@@ -93,14 +100,14 @@ const Quote = () => {
                 id="category"
                 name="category"
                 className="mt-2 border rounded-lg p-2 flex-1 w-full"
-                onChange={formik.handleChange}
+                onChange={handleCategoryChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.category}
               >
                 {categories?.map((data, index) => (
                   <option
                     key={index}
-                    value={data?._id} onClick={() => setSelectCategory(data?.name)}>{data?.name}</option>
+                    value={data?._id}>{data?.name}</option>
                 ))}
               </select>
             </div>
@@ -110,7 +117,7 @@ const Quote = () => {
               </div>
             )}
             {
-              (selectCategory === 'Other' || selectCategory === 'other' || selectCategory === 'Others') &&
+              (selectedCategoryName === 'Other' || selectedCategoryName === 'other' || selectedCategoryName === 'Others') &&
               <div className="flex flex-col items-start md:flex-row md:items-center w-full  md:gap-10">
                 <label
                   htmlFor="categoryName"
@@ -124,9 +131,11 @@ const Quote = () => {
                   type="text"
                   className="mt-2 border rounded-lg p-2 flex-1 w-full"
                   placeholder="Enter your mail id"
-                  onChange={formik.handleChange}
+                  onChange={(e) => {
+                    const inputValue = e.target.value;
+                    formik.setFieldValue("category", `Others - ${inputValue}`);
+                  }}
                   onBlur={formik.handleBlur}
-                  value={formik.values.category}
                 />
               </div>
             }

@@ -42,7 +42,7 @@ const slides = [
 
 const HeroSlider = () => {
 	return (
-		<div className="relative w-full h-screen mt-10 mb-10 px-10 overflow-hidden">
+		<div className="relative w-full h-screen mt-6 md:mt-10 mb-10 px-10 overflow-hidden">
 			<Slider {...settings} className="h-full">
 				{slides.map((slide) => (
 					<div key={slide.id} className="relative w-full h-screen ">
@@ -56,13 +56,13 @@ const HeroSlider = () => {
 						{/* <div className="absolute inset-0 bg-black/50 rounded-3xl" /> */}
 
 						{/* Animated Text */}
-						<div className="absolute w-full md:w-auto bg-white  top-0 flex flex-col left-0  text-white py-2 md:py-5 px-6 md:max-h-96 h-[500px]  md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
+						<div className="absolute w-full md:w-auto  bg-white 	  top-0 flex flex-col left-0  text-white py-2 md:py-5 px-6 md:max-h-96 h-[200px]  md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
 							<button className=" bg-[#f2f2f2] px-5 py-2 rounded-[20px] w-max text-black flex gap-2">
 								<img src="/Group@2x.png" className="h-6" />{' '}
 								Electro Webstore
 							</button>
 							<motion.h1
-								className="text-2xl md:text-6xl font-bold text-black"
+								className="text-2xl md:text-6xl text-center md:text-left font-bold text-black"
 								initial={{ opacity: 0, y: -50 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 1, ease: 'easeOut' }}
@@ -70,7 +70,7 @@ const HeroSlider = () => {
 								{slide.title}
 							</motion.h1>
 							<motion.h1
-								className="text-2xl md:text-6xl font-bold text-[#880909]"
+								className="text-2xl md:text-6xl text-center md:text-left font-bold text-[#880909]"
 								initial={{ opacity: 0, y: -50 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 1, ease: 'easeOut' }}
@@ -78,7 +78,7 @@ const HeroSlider = () => {
 								{slide.extraTitle}
 							</motion.h1>
 							<motion.p
-								className="mt-4 text-lg md:text-xl text-black"
+								className="mt-4 text-lg text-center md:text-left md:text-xl text-black"
 								initial={{ opacity: 0, y: 50 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{
