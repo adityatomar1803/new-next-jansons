@@ -130,7 +130,7 @@ const Quote = () => {
                   name="category"
                   type="text"
                   className="mt-2 border rounded-lg p-2 flex-1 w-full"
-                  placeholder="Enter your mail id"
+                  placeholder="Enter category name"
                   onChange={(e) => {
                     const inputValue = e.target.value;
                     formik.setFieldValue("category", `Others - ${inputValue}`);
