@@ -56,7 +56,7 @@ const HeroSlider = () => {
 						{/* <div className="absolute inset-0 bg-black/50 rounded-3xl" /> */}
 
 						{/* Animated Text */}
-						<div className="absolute w-full md:w-auto  bg-white 	  top-0 flex flex-col left-0  text-white py-2 md:py-5 px-6 md:max-h-96 h-[200px]  md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
+						<div className="absolute w-full md:w-auto  bg-white 	  top-0 flex flex-col left-0  text-white py-2 md:py-5 px-6 md:max-h-96 h-[500px]  md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
 							<button className=" bg-[#f2f2f2] px-5 py-2 rounded-[20px] w-max text-black flex gap-2">
 								<img src="/Group@2x.png" className="h-6" />{' '}
 								Electro Webstore
