@@ -66,7 +66,7 @@ const HeroSlider = () => {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 	return (
-		<div className="relative w-full h-[500px] lg:h-screen mt-6 md:mt-10 mb-10 px-10 overflow-hidden">
+		<div className="relative w-full h-[500px] md:h-screen lg:h-screen mt-6 md:mt-10 mb-10 px-10 overflow-hidden">
 			{isMobile ? (
 				<div>
 					<Slider {...settings} className="h-full block lg:hidden">
