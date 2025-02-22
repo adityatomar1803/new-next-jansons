@@ -32,17 +32,12 @@ const DownloadPage = () => {
 			<Header />
 
 			{/* Hero Section */}
-			<div className="relative bg-[url('/mb-downloads-banner.png')] md:bg-[url('/download-banner.png')]  bg-cover bg-top lg:h-[400px] flex items-start sm:items-center justify-center flex-col text-center md:text-left pl-4 md:pl-8 sm:pl-0 py-5">
-				{/* Blackish Red Overlay */}
-				<div className="lg:hidden absolute inset-0 bg-[rgba(0,0,0,0.75)]"></div>
-
-				<div className="container text-center z-10  mx-auto md:text-left space-y-2 md:space-y-9">
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px] z-[1]">
-						Wiring the Future,
+			<div className="relative bg-[url('/js-banner1.jpg')]   bg-cover bg-top lg:h-[400px] flex  sm:items-center justify-center flex-col text-center md:text-left pl-4 md:pl-8 sm:pl-0 py-5">
+				<div className="relative flex flex-col justify-center items-center py-4   px-4 md:px-10">
+					<h1 className="text-3xl md:text-6xl font-bold text-shadow-lg text-center">
+					<span className="text-yellow-400">WIRING</span>&nbsp;<span className=' text-white'>THE FUTURE</span> 
 					</h1>
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]   z-[1]">
-						Energizing Today.
-					</h1>
+					<p className="text-lg md:text-[42px] mt-2 text-shadow-md   text-center text-white">With Performance</p>
 				</div>
 			</div>
 

@@ -18,6 +18,7 @@ const ProductModal = ({
     slidesToScroll: 1,
     arrows: true,
     fade: true,
+    infinite: true,
   };
 
   const thumbnailSliderSettings = {
@@ -27,7 +28,7 @@ const ProductModal = ({
     vertical: true,
     verticalSwiping: true,
     arrows: false,
-    infinite: true,
+    speed: 500,
   };
 
   const mainSliderRef = useRef(null);

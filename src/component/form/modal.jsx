@@ -23,7 +23,7 @@ const Quote = ({ setIsOpen }) => {
         onSubmit: async (values, { setSubmitting, resetForm }, event) => {
             setSubmitting(true);
             try {
-                const response = await axios.post('http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/quotes/add', values);
+                const response = await axios.post('https://api.jainsonsindiaonline.com/api/quotes/add', values);
                 if (response.status === 200) {
                     toast.success('Request submitted successfully!', {
                         position: 'top-center',
@@ -52,7 +52,7 @@ const Quote = ({ setIsOpen }) => {
     const [categories, setCategories] = useState([])
     const getAllCategory = async () => {
         try {
-            const response = await axios.get("http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/categories/showAll");
+            const response = await axios.get("https://api.jainsonsindiaonline.com/api/categories/showAll");
             if (response.data) {
                 setCategories(response.data?.data)
             } else {

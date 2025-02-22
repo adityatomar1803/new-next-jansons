@@ -31,7 +31,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <span>📍</span>
-                <span>Corporate Office: WZ-572P, First Floor, Naraina Vihar Club Road, Naraina, New Delhi 110028 (India)</span>
+                <span>Corporate Office: C-5, Community Center, Naraina Vihar, New Delhi 110028 (India)</span>
               </li>
             </ul>
           </div>

@@ -11,40 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from '@/component/header/header';
 import Footer from '@/component/footer/footer';
 
-const productData1 = [
-	{
-		images: [
-			'https://via.placeholder.com/600x300?text=Product+1+Image+1',
-			'https://via.placeholder.com/600x300?text=Product+1+Image+2',
-			'https://via.placeholder.com/600x300?text=Product+1+Image+3',
-		],
-		title: 'Product 1',
-		material: 'Cotton',
-		size: 'Medium',
-	},
-	{
-		images: [
-			'https://via.placeholder.com/600x300?text=Product+2+Image+1',
-			'https://via.placeholder.com/600x300?text=Product+2+Image+2',
-			'https://via.placeholder.com/600x300?text=Product+2+Image+2',
-		],
-		title: 'Product 2',
-		material: 'Leather',
-		size: 'Large',
-	},
-	{
-		images: [
-			'https://via.placeholder.com/600x300?text=Product+3+Image+1',
-			'https://via.placeholder.com/600x300?text=Product+3+Image+2',
-			'https://via.placeholder.com/600x300?text=Product+3+Image+3',
-		],
-		title: 'Product 3',
-		material: 'Wood',
-		size: 'Small',
-	},
-];
 
-const category = [];
+
 
 const Loader = () => {
 	return (
@@ -61,7 +29,7 @@ const ProductAndService = () => {
 	const getAllCategory = async () => {
 		try {
 			const response = await axios.get(
-				'http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/categories/showAll',
+				"https://api.jainsonsindiaonline.com/api/categories/showAll"
 			);
 			if (response.data) {
 				setCategories(response.data?.data);
@@ -75,11 +43,9 @@ const ProductAndService = () => {
 	};
 
 	const fetchProducts = async (category) => {
-		const url = new URL(
-			'http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/product/search',
-		);
+		const url = new URL("https://api.jainsonsindiaonline.com/api/product/search");
 		setIsLoading(true);
-		url.searchParams.append('category', category);
+		url.searchParams.append("category", category);
 		try {
 			const response = await axios.get(url);
 
@@ -92,8 +58,8 @@ const ProductAndService = () => {
 		} catch (err) {
 			setError(
 				err.response?.data?.message ||
-					err.message ||
-					'An error occurred',
+				err.message ||
+				'An error occurred',
 			);
 		} finally {
 			setIsLoading(false);
@@ -104,7 +70,7 @@ const ProductAndService = () => {
 		const fetchProducts = async () => {
 			try {
 				const response = await axios.get(
-					'http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/product/getAll',
+					"https://api.jainsonsindiaonline.com/api/product/getAll"
 				);
 
 				if (response.data && response.data.data) {
@@ -115,8 +81,8 @@ const ProductAndService = () => {
 			} catch (err) {
 				setError(
 					err.response?.data?.message ||
-						err.message ||
-						'An error occurred',
+					err.message ||
+					'An error occurred',
 				);
 			} finally {
 				setLoading(false);
@@ -131,7 +97,8 @@ const ProductAndService = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
 	const [showAll, setShowAll] = useState(false); // State to toggle between show all or first 5 items
-
+	const [recentProduct, setrecentProduct] = useState(false); // State to toggle between show all or first 5 items
+	const [likeProduct, setLikeProduct] = useState(false);
 	const toggleShowAll = () => {
 		setShowAll((prevState) => !prevState);
 	};
@@ -169,25 +136,25 @@ const ProductAndService = () => {
 			try {
 				// Send data to the API
 				const response = await axios.post(
-					'http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/contactUs',
-					formData,
+					"https://api.jainsonsindiaonline.com/api/contactUs",
+					formData
 				);
 				// Success message
 				if (response.status === 200 || response.status === 201) {
-					toast.success('Message sent successfully!', {
+					toast.success("Message sent successfully!", {
 						autoClose: 5000,
-						position: 'top-center',
+						position: "top-center",
 					});
 					formik.resetForm();
 				} else {
-					toast.error('Error sending message', {
+					toast.error("Error sending message", {
 						position: toast.POSITION.TOP_RIGHT,
 						autoClose: 5000,
 					});
 				}
 			} catch (error) {
-				console.error('Error:', error);
-				toast.error('Error sending message');
+				console.error("Error:", error);
+				toast.error("Error sending message");
 			} finally {
 				setSubmitting(false); // Optionally, stop the submitting indicator
 			}
@@ -201,31 +168,19 @@ const ProductAndService = () => {
 		const section = document.getElementById('next-section'); // Get the target section by id
 		section.scrollIntoView({ behavior: 'smooth' }); // Scroll smoothly to the section
 	};
-
-	const ScrollToTop = () => {
-		useEffect(() => {
-			window.scrollTo(0, 0);
-		}, []);
-
-		return null;
-	};
-
+	const displayedRecentProducts = recentProduct ? products.reverse() : products?.slice(-3).reverse();
+	const displayedLikeProducts = likeProduct ? products.reverse() : products?.slice(-3).reverse();
 	return (
 		<div>
 			{/* <ScrollToTop /> */}
 			<Header />
 
-			<div className="relative bg-[url('/mb-product-banner.png')] md:bg-[url('/product-banner.png')]  bg-cover bg-top lg:h-[400px] flex items-start sm:items-center justify-center flex-col text-center md:text-left pl-4 md:pl-8 sm:pl-0 py-5">
-				{/* Blackish Red Overlay */}
-				<div className="lg:hidden absolute inset-0 bg-[rgba(61,0,0,0.7)]"></div>
-
-				<div className="container md:mx-auto space-y-2 md:space-y-9 z-10">
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]">
-						Powering Innovation,
+			<div className="relative bg-[url('/product-banner.png')] md:bg-[url('/product-banner.png')]  bg-cover bg-top lg:h-[400px] flex  sm:items-center justify-center flex-col text-center md:text-left pl-4 md:pl-8 sm:pl-0 py-5">
+				<div className="relative flex flex-col justify-center items-center py-4   px-4 md:px-10">
+					<h1 className="text-3xl md:text-6xl font-bold text-shadow-lg text-center">
+						<span className=' text-white'>POWERING</span> <br /><span className="text-yellow-400">INNOVATION,</span>
 					</h1>
-					<h1 className="text-white font-bold text-xl md:text-[24px] lg:text-[48px]">
-						Electrifying Possibilities
-					</h1>
+					<p className="text-lg md:text-[42px] mt-2 text-shadow-md   text-center text-white">Electrifying Possibilities</p>
 				</div>
 			</div>
 
@@ -235,14 +190,12 @@ const ProductAndService = () => {
 				<div className="flex flex-wrap gap-4 px-6 ">
 					{categories?.map((data, index) => (
 						<button
-							className={`${
-								data?._id === isSelected
-									? 'bg-[#880909]'
-									: 'bg-[#EBEBEB]'
-							} : 
-                }] hover:bg-[#880909] ${
-					data?._id === isSelected ? 'text-[#fff]' : 'text-black'
-				} hover:text-white  py-2 px-4 rounded-full transition duration-300 ease-in-out`}
+							className={`${data?._id === isSelected
+								? 'bg-[#880909]'
+								: 'bg-[#EBEBEB]'
+								} : 
+                }] hover:bg-[#880909] ${data?._id === isSelected ? 'text-[#fff]' : 'text-black'
+								} hover:text-white  py-2 px-4 rounded-full transition duration-300 ease-in-out`}
 							onClick={() => {
 								fetchProducts(data?._id);
 								setIsSelected(data?._id);
@@ -326,9 +279,7 @@ const ProductAndService = () => {
 						Recently viewed products
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 ">
-						{products
-							?.slice(-3)
-							?.reverse()
+						{displayedRecentProducts
 							?.map((product, index) => (
 								<ProductCard
 									key={index}
@@ -342,8 +293,8 @@ const ProductAndService = () => {
 
 				{products?.length > 3 && (
 					<div className=" flex w-full justify-center">
-						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-							See All
+						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500" onClick={() => setrecentProduct(!recentProduct)}>
+							{recentProduct ? 'See Less' : 'See All'}
 						</button>
 					</div>
 				)}
@@ -355,23 +306,20 @@ const ProductAndService = () => {
 						Products you may like
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 ">
-						{products
-							?.slice(-3)
-							?.reverse()
-							?.map((product, index) => (
-								<ProductCard
-									images={product.imageURLs}
-									name={product.name}
-									key={index}
-									feature={product.features}
-								/>
-							))}
+						{displayedLikeProducts?.map((product, index) => (
+							<ProductCard
+								images={product.imageURLs}
+								name={product.name}
+								key={index}
+								feature={product.features}
+							/>
+						))}
 					</div>
 				</div>
 				{products?.length > 3 && (
 					<div className=" flex w-full justify-center">
-						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-							See All
+						<button className="mt-4 bg-[#EDCD1F] text-black font-bold rounded-full px-6 py-2 transition-all hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500" onClick={() => setLikeProduct(!likeProduct)}>
+							{likeProduct ? 'See Less' : 'See All'}
 						</button>
 					</div>
 				)}

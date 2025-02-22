@@ -26,7 +26,7 @@ const Quote = () => {
       setSubmitting(true);
       try {
         const response = await axios.post(
-          "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/quotes/add",
+          "https://api.jainsonsindiaonline.com/api/quotes/add",
           values
         );
         if (response.status === 200) {
@@ -52,12 +52,12 @@ const Quote = () => {
       event.preventDefault();
     },
   });
-
+  const [selectCategory, setSelectCategory] = useState('')
   const [categories, setCategories] = useState([]);
   const getAllCategory = async () => {
     try {
       const response = await axios.get(
-        "http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/categories/showAll"
+        "https://api.jainsonsindiaonline.com/api/categories/showAll"
       );
       if (response.data) {
         setCategories(response.data?.data);
@@ -73,6 +73,14 @@ const Quote = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
+  const [selectedCategoryName, setSelectedCategoryName] = useState("");
+
+  const handleCategoryChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedCategory = categories.find((cat) => cat._id === selectedId);
+    setSelectedCategoryName(selectedCategory ? selectedCategory.name : "");
+    formik.handleChange(event); // Keep Formik's behavior
+  };
   return (
     <div className="container mx-auto py-16 px-4 md:px-8">
       <div className=" flex justify-center items-center bg-white">
@@ -92,14 +100,14 @@ const Quote = () => {
                 id="category"
                 name="category"
                 className="mt-2 border rounded-lg p-2 flex-1 w-full"
-                onChange={formik.handleChange}
+                onChange={handleCategoryChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.category}
               >
-                {categories?.map((data,index) => (
+                {categories?.map((data, index) => (
                   <option
-                  key={index}
-                  value={data?._id}>{data?.name}</option>
+                    key={index}
+                    value={data?._id}>{data?.name}</option>
                 ))}
               </select>
             </div>
@@ -108,7 +116,29 @@ const Quote = () => {
                 {formik.errors.category}
               </div>
             )}
-
+            {
+              (selectedCategoryName === 'Other' || selectedCategoryName === 'other' || selectedCategoryName === 'Others') &&
+              <div className="flex flex-col items-start md:flex-row md:items-center w-full  md:gap-10">
+                <label
+                  htmlFor="categoryName"
+                  className="text-sm font-medium min-w-32 sm:flex-1 md:flex-initial"
+                >
+                  Category Name
+                </label>
+                <input
+                  id="categoryName"
+                  name="category"
+                  type="text"
+                  className="mt-2 border rounded-lg p-2 flex-1 w-full"
+                  placeholder="Enter category name"
+                  onChange={(e) => {
+                    const inputValue = e.target.value;
+                    formik.setFieldValue("category", `Others - ${inputValue}`);
+                  }}
+                  onBlur={formik.handleBlur}
+                />
+              </div>
+            }
             <div className="flex flex-col items-start md:flex-row md:items-center w-full  md:gap-10">
               <label
                 htmlFor="phone"

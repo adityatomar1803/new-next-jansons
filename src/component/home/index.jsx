@@ -6,9 +6,7 @@ import Collaborations from "./collaborations";
 import Stats from "./stats";
 import AboutUs from "./About";
 
-const   Homepage = () => {
-
-
+const Homepage = () => {
     return (
         <div>
             <HeroSection />

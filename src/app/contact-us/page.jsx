@@ -47,7 +47,7 @@ const ContactUs = () => {
 
             try {
                 // Send data to the API
-                const response = await axios.post('http://jainson-backend.ap-south-1.elasticbeanstalk.com/api/contactUs', formData);
+                const response = await axios.post('https://api.jainsonsindiaonline.com/api/contactUs', formData);
 
                 // Success message
                 if (response.status === 200 || response.status === 201) {
@@ -112,7 +112,7 @@ const ContactUs = () => {
                 <div className=' w-full md:w-1/2'>
                     <h2 className="text-3xl font-bold mb-6 text-left">Meet with us- Corporate Office</h2>
                     <p className="text-left mb-4">
-                        WZ-572P, First Floor, Naraina Vihar Club Road, Naraina, New Delhi 110028 (India)
+                        C-5, Community Center, Naraina Vihar, New Delhi 110028 (India)
                     </p>
                     {/* Keep in a single row on mobile and desktop */}
                     <div className="flex flex-wrap float-start items-center gap-4 mb-4 w-full">
