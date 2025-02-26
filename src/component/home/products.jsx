@@ -21,9 +21,7 @@ const Products = () => {
 					</div>
 					<div className="bg-[url('/Frame-62335.jpg')] bg-cover bg-top p-6 rounded-2xl shadow text-left h-96 relative">
 						<h2 className="text-3xl font-bold text-left max-w-14 text-white text-wrap mb-4">
-							<span className="text-nowrap">
-								Cable &<br /> Wiring
-							</span>
+							<span className="text-nowrap">Cable & Wiring</span>
 							<br /> Accessories
 						</h2>
 						<Link href={'/product'}>
