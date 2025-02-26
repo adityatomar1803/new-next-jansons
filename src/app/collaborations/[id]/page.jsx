@@ -165,7 +165,7 @@ const CollaborationAbout = () => {
 								Over 40 Years of Experience:
 							</span>{' '}
 							Established in 1980, Jainsons India has a proven
-							track record in the electrical and electronics
+							track record in the electrical and networking
 							industry.
 						</p>
 						<p className="text-lg font-semibold text-gray-800">
