@@ -149,7 +149,7 @@ const ProductDemoPage = () => {
 			</div>
 
 			{/* Workstation Essentials Section */}
-			<div className="bg-[url('/wse3.png')]  bg-bottom bg-no-repeat bg-cover md:bg-contain min-h-[500px]  py-16 px-4 text-center">
+			<div className="bg-[url('/wse2.png')]  bg-bottom bg-no-repeat bg-cover md:bg-contain min-h-[500px]  py-16 px-4 text-center">
 				<div className="container mx-auto">
 					<h2 className="text-3xl font-semibold text-red-600 mb-4">
 						Wireless & Wired
