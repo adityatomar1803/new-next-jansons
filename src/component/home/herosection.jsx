@@ -82,7 +82,7 @@ const HeroSlider = () => {
 									}}
 								/>
 
-								<div className=" relative lg:absolute w-full md:w-auto  bg-white 	  top-0 flex flex-col left-0  text-white py-2 md:py-5 px-6 md:max-h-96 h-[200px]  md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
+								<div className=" relative lg:absolute w-full md:w-auto  bg-white  top-0 flex flex-col left-0  text-white py-1   md:py-5  px-6 md:max-h-96 h-[235px] md:text-left md:h-full items-center md:items-start justify-center md:rounded-br-2xl  ">
 									<button className=" bg-[#f2f2f2] px-5 py-2 rounded-[20px] w-max text-black flex gap-2">
 										<img
 											src="/Group@2x.png"
@@ -113,7 +113,7 @@ const HeroSlider = () => {
 										{slide.extraTitle}
 									</motion.h1>
 									<motion.p
-										className="mt-4 text-lg text-center md:text-left md:text-xl text-black"
+										className="mt-3 lg:mt-4 text-[17.5px]  text-center md:text-left md:text-xl text-black"
 										initial={{ opacity: 0, y: 50 }}
 										animate={{ opacity: 1, y: 0 }}
 										transition={{
